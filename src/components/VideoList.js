@@ -1,5 +1,5 @@
-
 import React from 'react';
+
 const VideoList = (props) => {
     const videos = props.videos;
     const videoItem = Object.keys(videos).map(key => {

@@ -17,7 +17,7 @@ class App extends Component {
 	}
 	fetchVideos = (searchTerm) =>  {
 	  const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
-	  const KEY = 'xxx';
+	  const KEY = 'AIzaSyCgz2WfB80GSfaXSqN1817aHd_umzUgMTc';
 	  const params = {
 		part: 'snippet',
 		key: KEY,
@@ -55,7 +55,7 @@ class App extends Component {
 		<div className="container">
 		<Header/>
 			<div className="row text-center">
-			  <h1 className="title"><span>Tube</span>Search</h1>
+			  <h1 className="title"><span>MyTube</span> Search</h1>
 			</div>
 			<div className="row">
 			  <SearchBar searchHandle={this.searchHandle}/>

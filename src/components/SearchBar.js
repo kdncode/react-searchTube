@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class SearchBar extends Component {
     state = { 
         searchTerm: ''
@@ -12,7 +13,10 @@ class SearchBar extends Component {
     render() {
         return (
             <div className="col-12 searchField">
-                <input type="text"  className="form-control" name="searchTerm" value={this.state.searchTerm} onChange={e => this.changeHandle(e.target.value)} placeholder="Search here..."/>
+                <input type="text"  className="form-control" name="searchTerm" 
+                value={this.state.searchTerm} 
+                onChange={e => this.changeHandle(e.target.value)} 
+                placeholder="Search"/>
             </div>
         );
     }
