@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-
 class SearchBar extends Component {
-
-    state = {
-        searchWord: ''
+    state = { 
+        searchTerm: ''
     };
-
-    changeHandle = (searchWord) => {
-        this.setState({ searchWord }); // searchWord : searchWord
-        this.props.searchHandle(searchWord); 
+    changeHandle = (searchTerm) => {
+        this.setState({
+            searchTerm
+        });
+        this.props.searchHandle(searchTerm);
     }
-
     render() {
         return (
-            <div className="col-12 searchBox">
-                <input type="text" className="form-control" 
-                       name="searchWord" placeholder="Search"
-                       value={this.state.searchWord}
-                       onChange={ e => this.changeHandle(e.target.value) }
-                />
+            <div className="col-12 searchField">
+                <input type="text"  className="form-control" name="searchTerm" value={this.state.searchTerm} onChange={e => this.changeHandle(e.target.value)} placeholder="Search here..."/>
             </div>
         );
     }

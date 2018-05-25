@@ -38,18 +38,44 @@
 
 .videolist {
   height: 550px;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 
 .searchBox {
   margin: 20px 0;
 }
 
+
+figure{
+  display: flex;
+  padding: 10px;
+  border: 1px solid #ddd;
+  transition: .3s;
+  cursor: pointer;
+}
+figure img{
+  width: 100px;
+  height: 100px;
+}
+figure:hover{
+  opacity: 0.8;
+}
+figcaption{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 iframe {
   width: 100%;
 }
 
-.desc {
-  padding: 15px;
+.desc{
+  padding:15px;
   border-width: 0 1px 1px 1px;
+  background-color: rgba(221, 221, 221, 0.52);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.desc p{
+  font-size: 18px;
 }

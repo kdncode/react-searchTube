@@ -4,89 +4,73 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
-import VideoPlay from './components/VideoPlay';
+import SelectedVideo from './components/SelectedVideo';
 import VideoList from './components/VideoList';
 
 class App extends Component {
-
 	state = {
-		videos: '',
-		selected: ''
+	  videos: '',
+	  selected: ''
 	}
-
 	componentWillMount() {
-		this.fetchVideos('bruno mars');
+	  this.fetchVideos('bruno mars');
 	}
-
-	fetchVideos = (searchWord) => {
-		const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
-		const KEY = 'xxx';
-		const params = {
-			part: 'snippet',
-			key: KEY,
-			q: searchWord,
-			type: 'video'
-		};
-
-		// Axios
-		axios.get(ROOT_URL, { params })
-		.then(res => {
-			this.setState({
-				videos: res.data.items,
-				selected: res.data.items[0]
-			})
+	fetchVideos = (searchTerm) =>  {
+	  const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
+	  const KEY = 'xxx';
+	  const params = {
+		part: 'snippet',
+		key: KEY,
+		q: searchTerm,
+		type: 'video'
+	  };
+	  axios.get(ROOT_URL, {
+		params
+	  })
+	  .then(res => {
+		this.setState({
+		  videos: res.data.items,
+		  selected: res.data.items[0]
 		})
+	  })
 	}
-
-	searchHandle = (word) => {
-		const searchWord = (word.length > 0) ? word : 'bruno mars';
-		this.setState({
-			searchWord: searchWord
-		});
-		this.fetchVideos(searchWord);
-	} 
-
+  
+	searchHandle = (term) => {
+	  const searchTerm = (term.length > 0) ? term : 'bruno mars';
+	  this.setState({
+		searchTerm: searchTerm
+	  });
+	  this.fetchVideos(searchTerm);
+	}
+  
 	selectItem = (video) => {
-		this.setState({
-			selected: video
-		});
+	  this.setState({
+		selected: video
+	  })
 	}
-
+  
 	render() {
-		return (
-			<div className="container">
-			<Header />
-				{/* Title */}
-				<div className="row text-center">
-					<h1 className="title"><span>Youtube</span>Search</h1>
-				</div>
-
-				{/* SearchBar */}
-				<div className="row">
-					<SearchBar searchHandle={this.searchHandle} />
-				</div>
-
-				{/* Video */}
-				<div className="row">
-
-					{/* Video Play*/}
-					<div className="col-8">
-						{this.state.selected !== '' &&
-						<VideoPlay video={this.state.selected} /> }
-					</div>
-
-					{/* Video List*/}
-					<div className="col-4">
-						<div className="videolist">
-							<VideoList 
-							video={this.state.videos}
-							selected={this.selectItem} />
-						</div>
-					</div>
-				</div>
+	  return (
+		  
+		<div className="container">
+		<Header/>
+			<div className="row text-center">
+			  <h1 className="title"><span>Tube</span>Search</h1>
 			</div>
-		);
+			<div className="row">
+			  <SearchBar searchHandle={this.searchHandle}/>
+			</div>
+			<div className="row">
+			  <div className="col-8">{this.state.selected !== '' && <SelectedVideo video={this.state.selected}/>}</div>
+			  <div className="col-4">
+				<div className="videolist">
+				  <VideoList videos={this.state.videos} selectItem={this.selectItem}/>
+				</div>
+			  </div>
+			</div>
+		</div>
+	  );
 	}
-}
-
-export default App;
+  }
+  
+  export default App;
