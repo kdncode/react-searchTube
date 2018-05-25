@@ -11,11 +11,11 @@ class App extends Component {
 
 	state = {
 		videos: '',
-		play: ''
-	};
+		selected: ''
+	}
 
 	componentWillMount() {
-		this.fechVideos('blackpink')
+		this.fetchVideos('bruno mars');
 	}
 
 	fetchVideos = (searchWord) => {
@@ -29,15 +29,33 @@ class App extends Component {
 		};
 
 		// Axios
-		axios.get(ROOT_URL, {
-			params
+		axios.get(ROOT_URL, { params })
+		.then(res => {
+			this.setState({
+				videos: res.data.items,
+				selected: res.data.items[0]
+			})
 		})
+	}
+
+	searchHandle = (word) => {
+		const searchWord = (word.length > 0) ? word : 'bruno mars';
+		this.setState({
+			searchWord: searchWord
+		});
+		this.fetchVideos(searchWord);
+	} 
+
+	selectItem = (video) => {
+		this.setState({
+			selected: video
+		});
 	}
 
 	render() {
 		return (
 			<div className="container">
-			{/* <Header /> */}
+			<Header />
 				{/* Title */}
 				<div className="row text-center">
 					<h1 className="title"><span>Youtube</span>Search</h1>
@@ -53,13 +71,16 @@ class App extends Component {
 
 					{/* Video Play*/}
 					<div className="col-8">
-						<VideoPlay />
+						{this.state.selected !== '' &&
+						<VideoPlay video={this.state.selected} /> }
 					</div>
 
 					{/* Video List*/}
 					<div className="col-4">
 						<div className="videolist">
-							<VideoList />
+							<VideoList 
+							video={this.state.videos}
+							selected={this.selectItem} />
 						</div>
 					</div>
 				</div>
