@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,4 +25,31 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+
+.title {
+  font-weight: 900;
+  margin: 20px auto;
+}
+
+.title span {
+  color: red;
+}
+
+.videolist {
+  height: 550px;
+  /* overflow-y: auto; */
+}
+
+.searchBox {
+  margin: 20px 0;
+}
+
+iframe {
+  width: 100%;
+}
+
+.desc {
+  padding: 15px;
+  border-width: 0 1px 1px 1px;
 }
