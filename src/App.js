@@ -25,10 +25,12 @@ class App extends Component {
 		key: KEY,
 		q: searchTerm,
 		type: 'video'
-	  };
+		};
+		
 	  axios.get(ROOT_URL, {
 		params
-	  })
+		})
+		
 	  .then(res => {
 		this.setState({
 		  videos: res.data.items,
