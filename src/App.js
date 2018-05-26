@@ -42,7 +42,7 @@ class App extends Component {
 	searchHandle = (term) => {
 	  const searchTerm = (term.length > 0) ? term : 'bruno mars';
 	  this.setState({
-		searchTerm: searchTerm
+			searchTerm: searchTerm
 	  });
 	  this.fetchVideos(searchTerm);
 	}
