@@ -50,7 +50,7 @@ class App extends Component {
 	selectItem = (video) => {
 	  this.setState({
 			selected: video
-	  })
+	  });
 	}
   
 	render() {
