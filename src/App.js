@@ -12,9 +12,11 @@ class App extends Component {
 	  videos: '',
 	  selected: ''
 	}
+
 	componentWillMount() {
 	  this.fetchVideos('bruno mars');
 	}
+	
 	fetchVideos = (searchTerm) =>  {
 	  const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
 	  const KEY = 'AIzaSyCgz2WfB80GSfaXSqN1817aHd_umzUgMTc';
