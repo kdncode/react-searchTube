@@ -59,7 +59,7 @@ class App extends Component {
 		<div className="container">
 		<Header/>
 			<div className="row text-center">
-			  <h1 className="title"><span>MyTube</span> Search</h1>
+			  <h1 className="title"><span>MyTube</span>Search</h1>
 			</div>
 			<div className="row">
 			  <SearchBar searchHandle={this.searchHandle}/>
