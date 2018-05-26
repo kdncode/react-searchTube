@@ -16,7 +16,7 @@ class App extends Component {
 	componentWillMount() {
 	  this.fetchVideos('bruno mars');
 	}
-	
+
 	fetchVideos = (searchTerm) =>  {
 	  const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
 	  const KEY = 'AIzaSyCgz2WfB80GSfaXSqN1817aHd_umzUgMTc';
@@ -75,4 +75,4 @@ class App extends Component {
 	}
   }
   
-  export default App;
+export default App;
