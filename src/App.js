@@ -32,10 +32,10 @@ class App extends Component {
 		})
 		
 	  .then(res => {
-		this.setState({
-		  videos: res.data.items,
-		  selected: res.data.items[0]
-		})
+			this.setState({
+				videos: res.data.items,
+				selected: res.data.items[0]
+			})
 	  })
 	}
   
