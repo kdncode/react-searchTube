@@ -55,24 +55,23 @@ class App extends Component {
   
 	render() {
 	  return (
-		  
-		<div className="container">
-		<Header/>
-			<div className="row text-center">
-			  <h1 className="title"><span>MyTube</span>Search</h1>
-			</div>
-			<div className="row">
-			  <SearchBar searchHandle={this.searchHandle}/>
-			</div>
-			<div className="row">
-			  <div className="col-8">{this.state.selected !== '' && <SelectedVideo video={this.state.selected}/>}</div>
-			  <div className="col-4">
-				<div className="videolist">
-				  <VideoList videos={this.state.videos} selectItem={this.selectItem}/>
+			<div className="container">
+			<Header/>
+				<div className="row text-center">
+					<h1 className="title"><span>MyTube</span>Search</h1>
 				</div>
-			  </div>
+				<div className="row">
+					<SearchBar searchHandle={this.searchHandle}/>
+				</div>
+				<div className="row">
+					<div className="col-8">{this.state.selected !== '' && <SelectedVideo video={this.state.selected}/>}</div>
+					<div className="col-4">
+					<div className="videolist">
+						<VideoList videos={this.state.videos} selectItem={this.selectItem}/>
+					</div>
+					</div>
+				</div>
 			</div>
-		</div>
 	  );
 	}
   }
